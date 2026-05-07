@@ -1,0 +1,27 @@
+name: WSAGA Script
+
+on:
+  workflow_dispatch:
+    inputs:
+      magisk_link:
+        description: 'Download link to magisk apk'
+        required: true
+      gapps_variant:
+        description: 'Variants of gapps'
+        required: true
+        default: 'none'
+      root_solution:
+        description: 'Root solution'
+        required: true
+        default: 'magisk'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print inputs
+        run: |
+          echo "Magisk Link: ${{ github.event.inputs.magisk_link }}"
+          echo "Gapps Variant: ${{ github.event.inputs.gapps_variant }}"
+          echo "Root Solution: ${{ github.event.inputs.root_solution }}"
